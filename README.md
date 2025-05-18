@@ -53,7 +53,7 @@ pip install -e .
 Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
 
 #### Environment Variables Setup
-Refer to [nnUNetv2 Documentation]([https://github.com/CICL-Lab/MorphSeg](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md)) for more details.
+Refer to [nnUNetv2 Documentation](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md) for more details.
 ```bash
 export nnUNet_raw="/root/autodl-tmp/MorphSeg_raw"  
 export nnUNet_preprocessed="/root/autodl-tmp/MorphSeg_preprocessed"
