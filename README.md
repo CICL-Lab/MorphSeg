@@ -59,7 +59,27 @@ export nnUNet_results="/root/autodl-tmp/MorphSeg_results"
 # Fix multi-threading issues:
 export TORCH_COMPILE_DISABLE=1
 ```
+#### Experiment Configuration and Preprocessing  
+To prepare and verify the dataset:
+```bash
+MorphSeg_plan_and_preprocess -d [Taskid] --verify_dataset_integrity
+
+# Example:
+MorphSeg_plan_and_preprocess -d 1 --verify_dataset_integrity
+```
 ### 6. Hyperparameter Settings
 We recommend the following hyperparameters:
 - **batchsize**: 2 ([Configuration Guide](https://github.com/CICL-Lab/MorphSeg/))
 - **epoch**: 1500 ([Configuration Guide](https://github.com/CICL-Lab/MorphSeg/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py))
+
+## Run
+To begin model training, execute the following command:
+
+```bash
+MorphSeg_train [Taskid] 3d_fullres [fold]
+```
+
+Example:
+```bash
+MorphSeg_train 1 3d_fullres 5
+```
