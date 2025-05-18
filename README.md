@@ -69,13 +69,15 @@ pip install -e .
 Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
 
 The dataset should be organized as follows:
-
+```bash
    Dataset001_Cerebrovascular/
-      ├── imagesTr
-         ├── labelsTr
-            ├── imagesTs
-               └── dataset.json
+   ├── imagesTr
+   ├── labelsTr
+   ├── imagesTs
+   └── dataset.json
+```
    
+```json
 Below is an example of the required dataset.json structure:
 {
   "channel_names": {
@@ -88,6 +90,7 @@ Below is an example of the required dataset.json structure:
   "numTraining": 271,
   "file_ending": ".nii.gz"
 }
+```
 #### 6.5.2Environment Variables Setup
 Refer to [nnUNetv2 Documentation](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md) for more details.
 ```bash
