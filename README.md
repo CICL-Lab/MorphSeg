@@ -17,7 +17,7 @@ Although we have demonstrated the effectiveness of **MorphSeg** through extensiv
 Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  
 Optimizing these regions will be a major focus of our future work.
 
-![Failure Cases](failure_cases.png)
+![Failure Cases](Failure_cases.png)
 
 ## Datasets
 
