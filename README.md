@@ -51,7 +51,7 @@ git clone https://github.com/CICL-Lab/MorphSeg
 ```
 
 #### Install `dynamic_network_architectures`:
-For the acquisition and installation of **dynamic_network_architectures**, please refer to the [official repository](https://github.com/CICL-Lab/dynamic_network_architectures/tree/main).
+For the acquisition and installation of **dynamic_network_architectures**, please refer to the [dynamic_network_architectures](https://github.com/CICL-Lab/dynamic_network_architectures/tree/main).
 
 #### Install MorphSeg:
 ```bash
