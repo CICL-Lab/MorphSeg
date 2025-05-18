@@ -11,14 +11,6 @@ To easily demonstrate the segmentation effect of **MorphSeg**, we provide an int
 Slide the slider to view the segmented cerebrovascular structures.
 > 🔗 **[Segmentation Demo](https://cicl-lab.github.io/MorphSeg/before_after.html)**
 
-## Failure Cases
-
-Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
-Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  
-Optimizing these regions will be a major focus of our future work.
-
-![Failure Cases](https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png)
-
 ## Datasets
 
 MorphSeg is evaluated on two publicly available datasets:
@@ -97,4 +89,11 @@ Example:
 ```bash
 MorphSeg_train 1 3d_fullres 5
 ```
+## Failure Cases
+
+Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
+Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  
+Optimizing these regions will be a major focus of our future work.
+
+![Failure Cases](https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png)
 The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
