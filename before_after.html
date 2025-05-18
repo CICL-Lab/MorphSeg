@@ -1,116 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>MorphSeg Before & After Comparison</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            background-color: #f7f8fa;
-            font-family: Arial, sans-serif;
-            overflow-y: auto; /* 添加垂直滚动条 */
-        }
-        h2 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .container {
-            position: relative;
-            width: 800px;
-            max-width: 90%;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 20px;
-        }
-        .container img {
-            width: 100%;
-            height: auto;
-        }
-        #afterImage {
-            position: absolute;
-            top: 0;
-            left: 0;
-            clip-path: inset(0 100% 0 0);
-        }
-        .slider-container {
-            display: flex;
-            align-items: center;
-            width: 800px;
-            max-width: 90%;
-            margin-top: 10px;
-        }
-        input[type=range] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 80%;
-            height: 8px;
-            background: #007acc;
-            border-radius: 5px;
-            overflow: hidden;
-            outline: none;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 15px;
-            height: 15px;
-            background: #ffffff;
-            border: 2px solid #007acc;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        input[type=range]::-moz-range-thumb {
-            width: 15px;
-            height: 15px;
-            background: #ffffff;
-            border: 2px solid #007acc;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .slider-label {
-            font-size: 14px;
-            color: #555;
-            margin-left: 5px;
-        }
-        .button {
-            text-decoration: none;
-            color: white;
-            background-color: #007acc;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .button:hover {
-            background-color: #005a9e;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before/After Comparison</title>
+  <style>
+    /* 基础页面样式 */
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 20px;
+      text-align: center;
+    }
+
+    /* 图片对比容器，宽度自适应设置 */
+    #comparison-container {
+      position: relative;           /* 使内部绝对定位的元素以此容器为参考 */
+      width: 800px;                /* 容器宽度适配800px图像 */
+      max-width: 90%;             /* 在较窄屏幕下最大占据90%宽度 */
+      margin: 0 auto;             /* 水平居中容器 */
+    }
+    #comparison-container img {
+      display: block;
+      width: 100%;                /* 图像宽度占满容器 */
+      height: auto;               /* 高度自适应保持比例 */
+    }
+    /* 覆盖在上层的“结果”图像，初始只显示左侧一半 */
+    #after-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* 使用剪裁路径只显示左侧50%，随着滑块调整改变此宽度百分比 */
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    }
+
+    /* 滑块和提示文本容器 */
+    #slider-wrapper {
+      width: 800px;               /* 滑块容器宽度与图像相同 */
+      max-width: 90%;
+      margin: 10px auto 0 auto;   /* 与图像容器相同水平居中，顶部留距10px */
+      position: relative;
+    }
+    #slider {
+      width: 100%;
+      /* 自定义滑块外观 */
+      -webkit-appearance: none;  /* 去除默认样式，以下自定义 */
+      appearance: none;
+      height: 8px;              /* 滑轨高度 */
+      background: #ddd;         /* 滑轨背景色浅灰 */
+      outline: none;
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    /* 滑块的指示圆钮 - WebKit内核浏览器样式 */
+    #slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #555;         /* 滑块按钮颜色深灰 */
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    /* 滑块的指示圆钮 - Firefox浏览器样式 */
+    #slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #555;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    /* Firefox浏览器中的滑轨样式 */
+    #slider::-moz-range-track {
+      background: #ddd;
+      height: 8px;
+      border-radius: 5px;
+    }
+
+    /* 滑块右侧提示文本样式，通过绝对定位与滑块同一行右侧显示 */
+    #slider-label {
+      position: absolute;
+      top: 50%;
+      left: 100%;               /* 定位到滑块轨道容器的右边缘 */
+      transform: translateY(-50%);
+      margin-left: 10px;        /* 文本与滑轨间留出一些空隙 */
+      white-space: nowrap;      /* 防止文本在较窄时拆行 */
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
 
-<h2>MorphSeg Before & After Image Comparison</h2>
+  <!-- 图像对比容器，包含前后两张尺寸相同的图像 -->
+  <div id="comparison-container">
+    <img src="before.png" alt="Before Image" />
+    <img src="after.png" id="after-img" alt="After Image" />
+  </div>
 
-<div class="container">
-    <img src="before.png" alt="Before">
-    <img id="afterImage" src="after.png" alt="After">
-</div>
+  <!-- 滑块控制区域，包含滑块和提示文本 -->
+  <div id="slider-wrapper">
+    <input type="range" id="slider" min="0" max="100" value="50" />
+    <span id="slider-label">Slide to compare the segmentation results</span>
+  </div>
 
-<div class="slider-container">
-    <input type="range" min="0" max="100" value="0" 
-           oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
-    <span class="slider-label">Slide to compare the segmentation results</span>
-</div>
-
-<a class="button" href="https://cicl-lab.github.io/MorphSeg/">🔙 Back to Main Page</a>
+  <!-- 控制滑块移动时动态更新剪裁区域的脚本，无需依赖外部库 -->
+  <script>
+    const slider = document.getElementById('slider');
+    const afterImg = document.getElementById('after-img');
+    // 监听滑块值的变化事件
+    slider.addEventListener('input', function() {
+      const val = this.value;
+      // 根据滑块值调整上层图像的剪裁宽度百分比
+      afterImg.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+      afterImg.style.webkitClipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+    });
+  </script>
 
 </body>
 </html>
