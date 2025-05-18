@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MorphSeg Before & After Comparison</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            position: relative;
+            width: 800px;
+            max-width: 100%;
+        }
+        .container img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+        }
+        #afterImage {
+            clip-path: inset(0 100% 0 0);
+        }
+        input[type=range] {
+            width: 100%;
+            position: absolute;
+            bottom: -40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="./images/before.png" alt="Before">
+    <img id="afterImage" src="./images/after.png" alt="After">
+    <input type="range" min="0" max="100" value="0" 
+           oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
+</div>
+
+</body>
+</html>
