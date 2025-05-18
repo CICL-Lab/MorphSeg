@@ -35,8 +35,8 @@
 <body>
 
 <div class="container">
-    <img src="./images/before.png" alt="Before">
-    <img id="afterImage" src="./images/after.png" alt="After">
+    <img src="before.png" alt="Before">
+    <img id="afterImage" src="after.png" alt="After">
     <input type="range" min="0" max="100" value="0" 
            oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
 </div>
