@@ -2,6 +2,19 @@
 
 MorphSeg is a structure-guided model specifically designed for cerebrovascular segmentation, aiming to identify fine-grained and complex vascular structures.MorphSeg addresses these challenges by leveraging three core modules: Dynamic Feature Extraction, Local Direction-Adaptive Fusion, and Global Multi-Source Aggregation, significantly enhancing the model's ability to capture vascular morphology.
 
+## Table of Contents
+- [Project Introduction](#project-introduction)
+- [Model Architecture](#model-architecture)
+- [Segmentation Effect Display](#segmentation-effect-display)
+- [Datasets](#datasets)
+- [Installation Guide](#installation-guide)
+- [Data Preparation](#data-preparation)
+- [Hyperparameter Settings](#hyperparameter-settings)
+- [Run](#run)
+- [Failure Cases](#failure-cases)
+- [Training and Testing Logs](#training-and-testing-logs)
+
+---
 ## Model Architecture
 ![Model Structure](Model.png)
 
@@ -14,15 +27,17 @@ Slide the slider to view the segmented cerebrovascular structures.
 ## Datasets
 
 MorphSeg is evaluated on two publicly available datasets:
+
 1. **CereVessMRA**:
-   - This dataset consists of 271 manually annotated 3D volumes , including both healthy and pathological samples.
+   - This dataset consists of 271 manually annotated 3D volumes, including both healthy and pathological samples.
    - A five-fold cross-validation strategy was applied, with 216 samples for training and 55 samples for testing.
    - Reference: Guo, B., Chen, Y., Lin, J., Huang, B., Bai, X., Guo, C., Gao, B., Gong, Q., Bai, X. (2024). *Self-supervised learning for accurately modelling hierarchical evolutionary patterns of cerebrovasculature*. Nature Communications, 15(1), 9235.
 
 2. **COSTA**:
-   - COSTA is a multi-center TOF-MRA dataset  with a total of **355 samples*,specifically designed to validate segmentation models across different imaging settings, such as acquisition devices and scanning resolutions
+   - COSTA is a multi-center TOF-MRA dataset with a total of **355 samples**, specifically designed to validate segmentation models across different imaging settings, such as acquisition devices and scanning resolutions.
    - A five-fold cross-validation strategy was applied, with 284 samples for training and 71 samples for testing.
    - Reference: Mou, L., Yan, Q., Lin, J., Zhao, Y., Liu, Y., Ma, S., Zhang, J., Lv, W., Zhou, T., Frangi, A.F., et al. (2024). *COSTA: A multi-center TOF-MRA dataset and a style self-consistency network for cerebrovascular segmentation*. IEEE Transactions on Medical Imaging.
+
 
 ## Installation Guide 
 
@@ -55,6 +70,24 @@ pip install -e .
 #### Data Structure
 Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
 
+The dataset should be organized as follows:
+Dataset001_Cerebrovascular
+├── imagesTr
+├── labelsTr
+├── imagesTs
+└── dataset.json
+Below is an example of the required dataset.json structure:
+{
+  "channel_names": {
+    "0": "MRA"
+  },
+  "labels": {
+    "background": 0,
+    "Cerebrovascular": 1
+  },
+  "numTraining": 271,
+  "file_ending": ".nii.gz"
+}
 #### Environment Variables Setup
 Refer to [nnUNetv2 Documentation](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md) for more details.
 ```bash
@@ -94,7 +127,9 @@ MorphSeg_train 1 3d_fullres 5
 Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
 Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
 Optimizing these regions will be a major focus of our future work.
+<div align="center">
+   <img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="80%"/>
+</div>
 
-<img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="80%"/>
-
+##Logs and results
 The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
