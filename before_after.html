@@ -9,24 +9,20 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f7f8fa;
             font-family: Arial, sans-serif;
+            overflow-y: auto;
         }
         h2 {
             margin-bottom: 10px;
             color: #333;
         }
-        p {
-            margin: 0;
-            padding-bottom: 15px;
-            color: #555;
-        }
         .container {
             position: relative;
-            width: 800px;
-            max-width: 90%;
+            width: 1000px;
+            max-width: 95%;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -43,20 +39,24 @@
             clip-path: inset(0 100% 0 0);
         }
         .slider-container {
-            width: 800px;
-            max-width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1000px;
+            max-width: 95%;
             margin-top: 10px;
         }
         input[type=range] {
             -webkit-appearance: none;
             appearance: none;
-            width: 100%;
+            width: 80%;
             height: 8px;
             background: #007acc;
             border-radius: 5px;
             overflow: hidden;
             outline: none;
             cursor: pointer;
+            margin-right: 15px;
         }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -76,6 +76,10 @@
             border-radius: 50%;
             cursor: pointer;
         }
+        .slider-label {
+            color: #555;
+            font-size: 14px;
+        }
         .button {
             text-decoration: none;
             color: white;
@@ -93,7 +97,6 @@
 <body>
 
 <h2>MorphSeg Before & After Image Comparison</h2>
-<p>Slide to compare the segmentation results</p>
 
 <div class="container">
     <img src="before.png" alt="Before">
@@ -103,6 +106,7 @@
 <div class="slider-container">
     <input type="range" min="0" max="100" value="0" 
            oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
+    <span class="slider-label">Slide to compare the segmentation results</span>
 </div>
 
 <a class="button" href="https://cicl-lab.github.io/MorphSeg/">🔙 Back to Main Page</a>
