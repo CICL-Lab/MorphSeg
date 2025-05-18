@@ -8,38 +8,85 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
-            background-color: #f9f9f9;
+            background-color: #f7f8fa;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
         }
         .container {
             position: relative;
             width: 800px;
-            max-width: 100%;
+            max-width: 90%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
         }
         .container img {
             width: 100%;
             height: auto;
-            position: absolute;
         }
         #afterImage {
+            position: absolute;
+            top: 0;
+            left: 0;
             clip-path: inset(0 100% 0 0);
         }
         input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
             width: 100%;
+            margin-top: -10px;
+            height: 8px;
+            background: #007acc;
+            border-radius: 5px;
+            overflow: hidden;
+            outline: none;
             position: absolute;
-            bottom: -40px;
+            bottom: -15px;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border: 2px solid #007acc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .button {
+            text-decoration: none;
+            color: white;
+            background-color: #007acc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #005a9e;
         }
     </style>
 </head>
 <body>
 
+<h2>MorphSeg Before & After Image Comparison</h2>
+
 <div class="container">
-    <img src="https://cicl-lab.github.io/MorphSeg/before.png" alt="Before">
-    <img id="afterImage" src="https://cicl-lab.github.io/MorphSeg/after.png" alt="After">
+    <img src="before.png" alt="Before">
+    <img id="afterImage" src="after.png" alt="After">
     <input type="range" min="0" max="100" value="0" 
            oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
 </div>
+
+<a class="button" href="https://cicl-lab.github.io/MorphSeg/">🔙 Back to Main Page</a>
 
 </body>
 </html>
