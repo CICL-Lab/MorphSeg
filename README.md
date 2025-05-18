@@ -3,14 +3,14 @@
 MorphSeg is a structure-guided model specifically designed for cerebrovascular segmentation, aiming to identify fine-grained and complex vascular structures.MorphSeg addresses these challenges by leveraging three core modules: Dynamic Feature Extraction, Local Direction-Adaptive Fusion, and Global Multi-Source Aggregation, significantly enhancing the model's ability to capture vascular morphology.
 
 ## 2.Table of Contents
-- [Project Introduction](##project-introduction)
-- [Model Architecture](##model-architecture)
-- [Segmentation Effect Display](##segmentation-effect-display)
-- [Datasets](##datasets)
-- [Installation Guide](##installation-guide)
+- [Project Introduction](#1.project-introduction)
+- [Model Architecture](#2.model-architecture)
+- [Segmentation Effect Display](#segmentation-effect-display)
+- [Datasets](#datasets)
+- [Installation Guide](#installation-guide)
 - [Run](#run)
-- [Failure Cases](##failure-cases)
-- [Training and Testing Logs](##training-and-testing-logs)
+- [Failure Cases](#failure-cases)
+- [Training and Testing Logs](#training-and-testing-logs)
 
 ---
 ## 3.Model Architecture
