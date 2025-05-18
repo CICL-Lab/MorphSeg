@@ -69,11 +69,13 @@ pip install -e .
 Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
 
 The dataset should be organized as follows:
-Dataset001_Cerebrovascular
-├── imagesTr
-├── labelsTr
-├── imagesTs
-└── dataset.json
+
+   Dataset001_Cerebrovascular
+   ├── imagesTr
+   ├── labelsTr
+   ├── imagesTs
+   └── dataset.json
+   
 Below is an example of the required dataset.json structure:
 {
   "channel_names": {
