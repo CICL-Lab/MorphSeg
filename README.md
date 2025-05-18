@@ -83,3 +83,4 @@ Example:
 ```bash
 MorphSeg_train 1 3d_fullres 5
 ```
+The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
