@@ -13,6 +13,7 @@ MorphSeg is a structure-guided model specifically designed for cerebrovascular s
 - [8. Logs and Results](#8-logs-and-results)
 - [9. Failure Cases](#9-failure-cases)
 - [10. Acknowledgement](#10-acknowledgement)
+- [11. Citation](#11-citation)
 ---
 ## 3. Model Architecture
 ![Model Structure](Model.png)
@@ -153,5 +154,9 @@ Optimizing these regions will be a major focus of our future work.
 ## 10. Acknowledgement
 Part of the code is adapted from the following excellent works:
 - [nnUNet](https://github.com/MIC-DKFZ/nnUNet) 
-- [DSCNet](https://github.com/YaoleiQi/DSCNet) 
+- [DSCNet](https://github.com/YaoleiQi/DSCNet)
+
 We sincerely appreciate their contributions to the community and their remarkable efforts in open-sourcing their work.
+
+## 11. Citation
+To Be Determined
