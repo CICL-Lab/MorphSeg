@@ -5,6 +5,12 @@ MorphSeg is a structure-guided model specifically designed for cerebrovascular s
 ## Model Architecture
 ![Model Structure](Model.png)
 
+## Segmentation Effect Display
+
+To easily demonstrate the segmentation effect of **MorphSeg**, we provide an interactive comparison of slices.  
+Slide the slider to view the segmented cerebrovascular structures.
+> 🔗 **[Segmentation Demo](https://cicl-lab.github.io/MorphSeg/before_after.html)**
+
 ## Datasets
 
 MorphSeg is evaluated on two publicly available datasets:
