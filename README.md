@@ -14,16 +14,16 @@ MorphSeg is a structure-guided model specifically designed for cerebrovascular s
 - [9. Failure Cases](#9-failure-cases)
 - [10. Acknowledgement](#10-acknowledgement)
 ---
-## 3.Model Architecture
+## 3. Model Architecture
 ![Model Structure](Model.png)
 
-## 4.Segmentation Effect Display
+## 4. Segmentation Effect Display
 
 To easily demonstrate the segmentation effect of **MorphSeg**, we provide an interactive comparison of slices.  
 Slide the slider to view the segmented cerebrovascular structures.
 > 🔗 **[Segmentation Demo](https://cicl-lab.github.io/MorphSeg/before_after.html)**
 
-## 5.Datasets
+## 5. Datasets
 
 MorphSeg is evaluated on two publicly available datasets:
 
@@ -38,7 +38,7 @@ MorphSeg is evaluated on two publicly available datasets:
    - Reference: Mou, L., Yan, Q., Lin, J., Zhao, Y., Liu, Y., Ma, S., Zhang, J., Lv, W., Zhou, T., Frangi, A.F., et al. (2024). *COSTA: A multi-center TOF-MRA dataset and a style self-consistency network for cerebrovascular segmentation*. IEEE Transactions on Medical Imaging.
 
 
-## 6.Installation Guide 
+## 6. Installation Guide 
 
 ### 6.1. Operating System
 We recommend running **MorphSeg** on a **Linux system** for optimal performance and compatibility.
@@ -114,7 +114,7 @@ We recommend the following hyperparameters:
 - **batchsize**: 2 (line in 185 at Path/MorphSeg_preprocessed/Dataxxx_xxx/nnUNetPlans.json) 
 - **epoch**: 1500 (line in 152 at Path/MorphSeg/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py) 
 
-## 7.Run
+## 7. Run
 To begin model training, execute the following command:
 
 ```bash
@@ -125,10 +125,10 @@ Example:
 ```bash
 MorphSeg_train 1 3d_fullres 5
 ```
-## 8.Logs and results
+## 8. Logs and results
 The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
 
-## 9.Failure Cases
+## 9. Failure Cases
 
 Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
 Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
@@ -137,7 +137,7 @@ Optimizing these regions will be a major focus of our future work.
    <img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="80%"/>
 </div>
 
-## 10.Acknowledgement
+## 10. Acknowledgement
 Part of the code is adapted from the following excellent works:
 - [nnUNet](https://github.com/MIC-DKFZ/nnUNet) 
 - [DSCNet](https://github.com/YaoleiQi/DSCNet) 
