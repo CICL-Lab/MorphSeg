@@ -70,11 +70,18 @@ Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/Da
 
 The dataset should be organized as follows:
 
-   Dataset001_Cerebrovascular
+   Dataset001_Cerebrovascular/
    ├── imagesTr
    ├── labelsTr
    ├── imagesTs
    └── dataset.json
+   nnUNet_raw/
+    ├── Dataset001_BrainTumour
+    ├── Dataset002_Heart
+    ├── Dataset003_Liver
+    ├── Dataset004_Hippocampus
+    ├── Dataset005_Prostate
+    ├── ...
    
 Below is an example of the required dataset.json structure:
 {
