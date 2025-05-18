@@ -3,7 +3,7 @@
 MorphSeg is a structure-guided model specifically designed for cerebrovascular segmentation, aiming to identify fine-grained and complex vascular structures.MorphSeg addresses these challenges by leveraging three core modules: Dynamic Feature Extraction, Local Direction-Adaptive Fusion, and Global Multi-Source Aggregation, significantly enhancing the model's ability to capture vascular morphology.
 
 ## Model Architecture
-![Model Structure](readmeimages/model_structure.png)
+![Model Structure](Model.png)
 
 ## Datasets
 
@@ -50,10 +50,10 @@ pip install -e .
 
 ### 5. Data Preparation
 #### Data Structure
-Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
+Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
 
 #### Environment Variables Setup
-Refer to [nnUNetv2 Documentation](https://github.com/CICL-Lab/MorphSeg) for more details.
+Refer to [nnUNetv2 Documentation](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md) for more details.
 ```bash
 export nnUNet_raw="/root/autodl-tmp/MorphSeg_raw"  
 export nnUNet_preprocessed="/root/autodl-tmp/MorphSeg_preprocessed"
