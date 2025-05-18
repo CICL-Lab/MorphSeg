@@ -8,8 +8,6 @@ MorphSeg is a structure-guided model specifically designed for cerebrovascular s
 - [Segmentation Effect Display](#segmentation-effect-display)
 - [Datasets](#datasets)
 - [Installation Guide](#installation-guide)
-- [Data Preparation](#data-preparation)
-- [Hyperparameter Settings](#hyperparameter-settings)
 - [Run](#run)
 - [Failure Cases](#failure-cases)
 - [Training and Testing Logs](#training-and-testing-logs)
