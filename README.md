@@ -14,3 +14,52 @@ MorphSeg is evaluated on two publicly available datasets:
    - COSTA is a multi-center TOF-MRA dataset  with a total of **355 samples*,specifically designed to validate segmentation models across different imaging settings, such as acquisition devices and scanning resolutions
    - A five-fold cross-validation strategy was applied, with 284 samples for training and 71 samples for testing.
    - Reference: Mou, L., Yan, Q., Lin, J., Zhao, Y., Liu, Y., Ma, S., Zhang, J., Lv, W., Zhou, T., Frangi, A.F., et al. (2024). *COSTA: A multi-center TOF-MRA dataset and a style self-consistency network for cerebrovascular segmentation*. IEEE Transactions on Medical Imaging.
+
+## Installation Guide 
+
+### 1. Operating System
+We recommend running **MorphSeg** on a **Linux system** for optimal performance and compatibility.
+
+### 2. Hardware Requirements
+We suggest using **RTX 4090 (24GB)** for training. Of course, higher computing power allows for better configurations, resulting in improved model performance.
+
+### 3. Recommended Configuration
+- **PyTorch**: 2.1
+- **CUDA**: 11.8
+
+### 4. Installation Steps
+#### Clone the MorphSeg repository:
+```bash
+git clone https://github.com/CICL-Lab/MorphSeg
+```
+
+#### Install `dynamic_network_architectures`:
+```bash
+cd path/MorphSeg/dynamic_network_architectures
+pip install -e .
+```
+
+#### Install MorphSeg:
+```bash
+cd path/MorphSeg
+pip install -e .
+```
+
+### 5. Data Preparation
+#### Data Structure
+Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
+
+#### Environment Variables Setup
+Refer to [nnUNetv2 Documentation](https://github.com/CICL-Lab/MorphSeg) for more details.
+```bash
+export nnUNet_raw="/root/autodl-tmp/MorphSeg_raw"  
+export nnUNet_preprocessed="/root/autodl-tmp/MorphSeg_preprocessed"
+export nnUNet_results="/root/autodl-tmp/MorphSeg_results"
+
+# Fix multi-threading issues:
+export TORCH_COMPILE_DISABLE=1
+```
+### 6. Hyperparameter Settings
+We recommend the following hyperparameters:
+- **batchsize**: 2 ([Configuration Guide](https://github.com/CICL-Lab/MorphSeg/))
+- **epoch**: 1500 ([Configuration Guide](https://github.com/CICL-Lab/MorphSeg/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py))
