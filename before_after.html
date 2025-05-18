@@ -15,8 +15,13 @@
             font-family: Arial, sans-serif;
         }
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: #333;
+        }
+        p {
+            margin: 0;
+            padding-bottom: 15px;
+            color: #555;
         }
         .container {
             position: relative;
@@ -25,7 +30,7 @@
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .container img {
             width: 100%;
@@ -37,26 +42,28 @@
             left: 0;
             clip-path: inset(0 100% 0 0);
         }
+        .slider-container {
+            width: 800px;
+            max-width: 90%;
+            margin-top: 10px;
+        }
         input[type=range] {
             -webkit-appearance: none;
             appearance: none;
             width: 100%;
-            margin-top: -10px;
-            height: 8px;
+            height: 10px;
             background: #007acc;
             border-radius: 5px;
             overflow: hidden;
             outline: none;
-            position: absolute;
-            bottom: -15px;
             cursor: pointer;
         }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 15px;
-            height: 15px;
-            background: #fff;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
             border: 2px solid #007acc;
             border-radius: 50%;
             cursor: pointer;
@@ -67,7 +74,7 @@
             background-color: #007acc;
             padding: 10px 20px;
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         .button:hover {
@@ -78,10 +85,14 @@
 <body>
 
 <h2>MorphSeg Before & After Image Comparison</h2>
+<p>Slide to compare the segmentation results</p>
 
 <div class="container">
     <img src="before.png" alt="Before">
     <img id="afterImage" src="after.png" alt="After">
+</div>
+
+<div class="slider-container">
     <input type="range" min="0" max="100" value="0" 
            oninput="document.getElementById('afterImage').style.clipPath = 'inset(0 ' + (100 - this.value) + '% 0 0)'">
 </div>
