@@ -76,9 +76,8 @@ The dataset should be organized as follows:
    ├── imagesTs
    └── dataset.json
 ```
-   
-```json
 Below is an example of the required dataset.json structure:
+```json
 {
   "channel_names": {
     "0": "MRA"
@@ -125,7 +124,10 @@ Example:
 ```bash
 MorphSeg_train 1 3d_fullres 5
 ```
-## 8.Failure Cases
+## 8.Logs and results
+The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
+
+## 9.Failure Cases
 
 Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
 Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
@@ -134,5 +136,8 @@ Optimizing these regions will be a major focus of our future work.
    <img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="80%"/>
 </div>
 
-## 9.Logs and results
-The training records and testing results are located in Path/MorphSeg_results/Dataxxx_xxx.
+## 10.Acknowledgement
+Part of the code is adapted from the following excellent works:
+- [nnUNet](https://github.com/MIC-DKFZ/nnUNet) 
+- [DSCNet](https://github.com/YaoleiQi/DSCNet) 
+We sincerely appreciate their contributions to the community and their remarkable efforts in open-sourcing their work.
