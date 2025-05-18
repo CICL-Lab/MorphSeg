@@ -29,9 +29,9 @@ To easily demonstrate the segmentation effect of **MorphSeg**, we provide the fo
       <td align="center"><strong>Case 3</strong></td>
     </tr>
     <tr>
-      <td><img src="case1.gif" alt="Case 1 Segmentation" width="250px"></td>
-      <td><img src="case2.gif" alt="Case 2 Segmentation" width="250px"></td>
-      <td><img src="case3.gif" alt="Case 3 Segmentation" width="250px"></td>
+      <td><img src="case1.gif" alt="Case 1 Segmentation" style="width:300px; height:300px;"></td>
+      <td><img src="case2.gif" alt="Case 2 Segmentation" style="width:300px; height:300px;"></td>
+      <td><img src="case3.gif" alt="Case 3 Segmentation" style="width:300px; height:300px;"></td>
     </tr>
   </table>
 </div>
