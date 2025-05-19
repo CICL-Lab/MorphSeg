@@ -145,7 +145,7 @@ The training records and testing results are located in Path/MorphSeg_results/Da
 ## 7 Failure Cases
 
 Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
-Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
+Here, we present some **failure cases**, where **green** and **blue** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
 
 Optimizing these regions will be a major focus of our future work.
 <div align="center">
