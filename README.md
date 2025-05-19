@@ -18,9 +18,9 @@ MorphSeg is a structure-guided model specifically designed for cerebrovascular s
 ## 3. Model Architecture
 ![Model Structure](Model.png)
 
-## 4. Segmentation Effect Display
+## 4. Segmentation example
 
-To easily demonstrate the segmentation effect of **MorphSeg**, we provide the following GIFs to visualize the transformation from raw input to segmented vascular structures.
+Segmentation examples are shown below for fast reference.
 
 <div align="center">
   <table>
@@ -91,6 +91,7 @@ The dataset should be organized as follows:
    ├── imagesTs
    └── dataset.json
 ```
+
 Below is an example of the required dataset.json structure:
 ```json
 {
@@ -129,7 +130,7 @@ We recommend the following hyperparameters:
 - **epoch**: 1500 (line in 152 at Path/MorphSeg/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py) 
 
 ## 7. Run
-To begin model training, execute the following command:
+To start training, execute the following command:
 
 ```bash
 MorphSeg_train [Taskid] 3d_fullres [fold]
@@ -146,9 +147,10 @@ The training records and testing results are located in Path/MorphSeg_results/Da
 
 Although we have demonstrated the effectiveness of **MorphSeg** through extensive experiments, fine-grained cerebrovascular segmentation remains a challenging task.  
 Here, we present some **failure cases**, where **blue** and **green** represent **False Negative (FN)** and **False Positive (FP)** regions, respectively.  It can be observed that MorphSeg may produce some False Negative cases during segmentation.
+
 Optimizing these regions will be a major focus of our future work.
 <div align="center">
-   <img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="80%"/>
+   <img src="https://github.com/CICL-Lab/MorphSeg/blob/main/Failure_case.png" alt="Failure Cases" width="60%"/>
 </div>
 
 ## 10. Acknowledgement
@@ -159,4 +161,4 @@ Part of the code is adapted from the following excellent works:
 We sincerely appreciate their contributions to the community and their remarkable efforts in open-sourcing their work.
 
 ## 11. Citation
-To Be Determined
+TBD
