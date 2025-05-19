@@ -87,7 +87,7 @@ The dataset should be organized as follows:
    Dataset001_Cerebrovascular/
    ├── imagesTr
    ├── labelsTr
-   ├── imagesTs
+   ├── imagesTs # optional
    └── dataset.json
 ```
 
