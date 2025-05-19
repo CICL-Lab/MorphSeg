@@ -1,7 +1,7 @@
 # Adaptive local extraction and global aggregation of structures in cerebrovascular segmentation
 
 This is the official implementation of MorphSeg in <i>Adaptive local extraction and global aggregation of structures in cerebrovascular segmentation</i>. 
-MorphSeg is a structure-guided model specifically designed for cerebrovascular segmentation, aiming to identify fine-grained and complex vascular structures.MorphSeg addresses these challenges by leveraging three core modules: Dynamic Feature Extraction, Local Direction-Adaptive Fusion, and Global Multi-Source Aggregation, significantly enhancing the model's ability to capture vascular morphology.
+MorphSeg is a structure-guided model specifically designed for cerebrovascular segmentation, aiming to identify fine-grained and complex vascular structures. MorphSeg addresses these challenges by leveraging three core modules: Dynamic Feature Extraction, Local Direction-Adaptive Fusion, and Global Multi-Source Aggregation, significantly enhancing the model's ability to capture vascular morphology.
 
 - [1. Model Architecture](#1-model-architecture)
 - [2. Segmentation Example](#2-segmentation-example)
@@ -64,23 +64,23 @@ We suggest using **RTX 4090 (24GB)** for training. Of course, higher computing p
 - **CUDA**: 11.8
 
 ### 4.4 Installation Steps
-#### 4.4 1Clone the MorphSeg repository:
+#### 4.4.1 Clone the MorphSeg repository:
 ```bash
 git clone https://github.com/CICL-Lab/MorphSeg
 ```
 
-#### 4.4.2 Install `dynamic_network_architectures`:
+#### 4.4.2 Install the `dynamic_network_architectures` package:
 For the acquisition and installation of **dynamic_network_architectures**, please refer to the [dynamic_network_architectures](https://github.com/CICL-Lab/dynamic_network_architectures/tree/main).
 
 #### 4.4.3 Install MorphSeg:
 ```bash
-cd path/MorphSeg
+cd Path/MorphSeg
 pip install -e .
 ```
 
 ### 4.5 Data Preparation
 #### 4.5.1 Data Structure
-Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_Cerebrovascular`.
+Please refer to [Example Data](https://github.com/CICL-Lab/MorphSeg/tree/main/DataSample/Dataset001_Cerebrovascular) to configure the file structure and set up the `dataset.json` file. The folder should be named as `Dataset[Taskid]_[Name]`.
 
 The dataset should be organized as follows:
 ```bash
@@ -101,7 +101,7 @@ Below is an example of the required dataset.json structure:
     "background": 0,
     "Cerebrovascular": 1
   },
-  "numTraining": 271,
+  "numTraining": 5,
   "file_ending": ".nii.gz"
 }
 ```
@@ -116,7 +116,7 @@ export nnUNet_results="/root/autodl-tmp/MorphSeg_results"
 export TORCH_COMPILE_DISABLE=1
 ```
 #### 4.5.3 Experiment Configuration and Preprocessing  
-To perform experimental preprocessing and configuration:
+To execute data preprocessing and configure the experiment settings:
 ```bash
 MorphSeg_plan_and_preprocess -d [Taskid] --verify_dataset_integrity
 
